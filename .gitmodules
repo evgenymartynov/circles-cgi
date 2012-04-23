@@ -1,0 +1,3 @@
+[submodule "circles_backend"]
+	path = circles_backend
+	url = git://github.com/evgenymartynov/circles.git
