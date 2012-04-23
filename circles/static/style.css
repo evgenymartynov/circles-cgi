@@ -1,0 +1,259 @@
+* { padding: 0; margin: 0; }
+ul { list-style: none; }
+header, footer { display: block; }
+
+html, body, table {
+    font-size: 15px;
+    font-family: Arial, Helvetica, serif;
+}
+
+header {
+    color: white;
+    width: 100%;
+
+    background: black;
+    background-image: linear-gradient(bottom, #525252 4%, #1F1F1F 40%, #000000 76%);
+    background-image: -o-linear-gradient(bottom, #525252 4%, #1F1F1F 40%, #000000 76%);
+    background-image: -moz-linear-gradient(bottom, #525252 4%, #1F1F1F 40%, #000000 76%);
+    background-image: -webkit-linear-gradient(bottom, #525252 4%, #1F1F1F 40%, #000000 76%);
+    background-image: -ms-linear-gradient(bottom, #525252 4%, #1F1F1F 40%, #000000 76%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.04, #525252),
+        color-stop(0.4, #1F1F1F),
+        color-stop(0.76, #000000)
+    );
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+
+    padding: 16px 0px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+h2:first-child {
+    margin-top: 8px;
+}
+
+h3 {
+    margin-top: 12px;
+    padding-bottom: 8px;
+}
+
+p {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    line-height: 20px;
+}
+
+pre {
+    font-size: 14px;
+    font-family: monospace;
+    background-color: #eee;
+    padding: 8px;
+    border: solid 1px #aaa;
+}
+
+ul li.padded {
+    padding: 2px 0px;
+}
+
+form label {
+    display: inline-block;
+    min-width: 200px;
+}
+
+form input {
+    margin: 4px 0px;
+}
+
+form input[type="text"] {
+    width: 20em;
+    padding: 2px 1px;
+}
+
+form input[type="submit"] {
+    padding: 1px 6px;
+}
+
+form#upload label {
+    min-width: 100px;
+}
+
+form#upload select {
+    width: 100px;
+}
+
+form#upload input[type="submit"] {
+    width: 100px;
+}
+
+table {
+    border-collapse: collapse;
+    border: solid 1px #aaf;
+    padding-left: 2px;
+}
+
+table td, table th {
+    vertical-align: top;
+    padding: 4px 8px;
+}
+
+table th {
+    border-bottom: solid 1px #aae;
+}
+
+table#sets td, table#sets th, table#contests td, table#contests th {
+    border: solid 1px #aae;
+}
+
+table#judge-hardware .first {
+    font-weight: bold;
+    padding-right: 16px;
+}
+
+table.alternate tr:nth-child(even), table.alternate tr:nth-child(even) {
+    background-color: #eef;
+}
+
+table#past-submissions .good {
+    background-color: #cfc;
+}
+
+table#past-submissions .bad {
+    background-color: #fcc;
+}
+
+#load-averages td:nth-child(2) {
+    text-align: right;
+}
+
+.admin-stats {
+    margin: 8px;
+    float: left;
+}
+
+.status-low {
+    background-color: #cfc;
+}
+
+.status-med {
+    background-color: #ea3;
+}
+
+.status-high {
+    background-color: #faa;
+}
+
+.status-extreme {
+    background-color: #f44;
+}
+
+.bar-graph {
+    width: 250px;
+    height: 20px;
+
+    border: solid 1px;
+
+    margin: 8px 0px;
+
+    position: relative;
+}
+
+.bar-graph .bar {
+    margin: 0;
+    height: 100%;
+
+    position: absolute;
+}
+
+.bar-graph .label {
+    margin: 0;
+    width: 100%;
+
+    position: absolute;
+    text-align: center;
+}
+
+.column {
+    width: 800px;
+    margin: auto;
+}
+
+#content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding-top: 12px;
+}
+
+#content a {
+    color: #a00;
+    text-decoration: underline;
+}
+
+#content a:hover {
+    color: #00a;
+}
+
+#flash-message-container {
+    border: #00a solid 1px;
+    background-color: #ddf;
+    padding: 0px 2px;
+    text-align: center;
+}
+
+.flash-message {
+    margin: 2px 0px;
+}
+
+.main-container {
+    position: relative;
+}
+
+#body-gradient {
+    height: 400px;
+    z-index: -1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: white;
+
+    background-image: linear-gradient(bottom, #FFFFFF 10%, #F2F2F2 100%);
+    background-image: -o-linear-gradient(bottom, #FFFFFF 10%, #F2F2F2 100%);
+    background-image: -moz-linear-gradient(bottom, #FFFFFF 10%, #F2F2F2 100%);
+    background-image: -webkit-linear-gradient(bottom, #FFFFFF 10%, #F2F2F2 100%);
+    background-image: -ms-linear-gradient(bottom, #FFFFFF 10%, #F2F2F2 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.1, #FFFFFF),
+        color-stop(1, #F2F2F2)
+    );
+}
+
+#broadcasts-container {
+    border: #00a solid 1px;
+    background-color: #ddf;
+    padding: 2px 4px;
+}
+
+.courses td {
+    width: 200px;
+}
