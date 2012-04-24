@@ -21,6 +21,11 @@
         <p>Got a total of ${num} timetables</p>
 
         % for c in courses:
+            <%
+                colours = {}
+                palette = ['cell purple', 'cell red', 'cell blue', 'cell yellow', 'cell green', 'cell orange']
+                pindex = 0
+            %>
             <table class="courses alternate" style="margin: 16px 0px">
                 <tr>
                     <th>Time</th>
@@ -33,7 +38,17 @@
                     <tr>
                         <td>${'%02d' % slot[0]}:00</td>
                         % for row in slot[1:]:
-                            <td>${row}</td>
+                            <%
+                                subj = row.split()[0]
+                                if subj != '-':
+                                    if subj not in colours:
+                                        colours[subj] = palette[pindex]
+                                        pindex = (pindex + 1) % len(palette)
+                                    colour = colours[subj]
+                                else:
+                                    colour = ''
+                            %>
+                            <td class="${colour}">${row}</td>
                         % endfor
                     </tr>
                 % endfor
