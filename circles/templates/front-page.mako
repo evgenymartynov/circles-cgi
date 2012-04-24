@@ -48,28 +48,36 @@
                     <tr>
                         <td>${'%02d' % slot[0]}:00</td>
                         % for ri, row in enumerate(slot[1:]):
-                            <%
-                                subj = row.split()[0]
-                                if subj != '-':
-                                    if subj not in colours:
-                                        colours[subj] = palette[pindex]
-                                        pindex = (pindex + 1) % len(palette)
-                                    colour = colours[subj]
-                                else:
-                                    colour = ''
-
-                                conseq = 1
-                                if len(row) > 1:
-                                    while 1+si+conseq < len(c) and c[1+si+conseq][1+ri] == c[1+si][1+ri]:
-                                        c[1+si+conseq][1+ri] = '*'
-                                        conseq += 1
-                            %>
                             <td>
+                                <%
+                                    colour = ''
+                                    conseq = 1
+                                    subjects = row.split(' | ')
+                                    if len(row) > 1:
+                                        rows = []
+                                        for subj in subjects:
+                                            if subj not in colours:
+                                                colours[subj] = palette[pindex]
+                                                pindex = (pindex + 1) % len(palette)
+                                            colour = colours[subj]
+                                            conseq = 1
+                                            while 1+si+conseq < len(c) and subj in c[1+si+conseq][1+ri]:
+                                                temp = c[1+si+conseq][1+ri].split(' | ')
+                                                temp.remove(subj)
+                                                c[1+si+conseq][1+ri] = ' | '.join(temp) or '*'
+                                                conseq += 1
+                                            rows.append((conseq, subj, colour))
+                                %>
                                 % if len(row) > 1:
+                                    % for _row in rows:
+                                    <%
+                                        conseq, row, colour = _row
+                                    %>
                                     <span style="position: relative">
                                         <div style="position: absolute; left: ${-(conseq-1)*50+15}px; width: ${conseq*100}px; height: ${conseq*100}px" class="cell ${colour}"></div>
                                         <div style="position: absolute; left: 15px; top: ${conseq*50 - 25}px; vertical-align: middle; text-align: center; width: 100px" class="cell-text ${colour}">${row if len(row) > 1 else ''}</div>
                                     </span>
+                                    % endfor
                                 % endif
                             </td>
                         % endfor
