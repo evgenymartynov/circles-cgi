@@ -6,6 +6,16 @@
     <form action="/" method="POST">
         <label for="courses" style="color: #888">Enter course codes in the box, space-separated. For example, "COMP1917 MATH1131"</label><br><br>
         <input name="courses" id="courses" type="text" style="width: 100%" value="${query or ''}"><br>
+        <label for="sort_order" style="color: #888">Sorting order:</label>
+        <select name="sort_order" id="sort_order">
+            <option value="free" ${'selected="selected"' if sort_order=='free' else ''}>Put timetables with most free weekdays first</option>
+            <option value="unfree" ${'selected="selected"' if sort_order=='unfree' else ''}>Least free weekdays first</option>
+            <option value="hours" ${'selected="selected"' if sort_order=='hours' else ''}>Least hours at uni first</option>
+        </select>
+        <br>
+        <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
+        <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours}"><br>
+        <br>
         <input type="submit" value="I love UNSW">
     </form>
 

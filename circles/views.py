@@ -36,8 +36,24 @@ def magics(request):
     courses = request.POST['courses'].upper().split()
     if not courses:
         return {'error': 'You need to provide at least one course'}
+
+    clash_hours = 0
+    sort_order = 'free'
+
     try:
-        tables = cint.process(courses, 'free')
+        clash_hours = request.POST['clash_hours']
+        clash_hours = int(clash_hours)
+        clash_hours = min(clash_hours, 3)
+    except:
+        clash_hours = 0
+
+    try:
+        sort_order = request.POST['sort_order']
+    except:
+        sort_order = 'free'
+
+    try:
+        tables = cint.process(courses, sort_order, clash_hours)
     except ValueError, e:
         return {'error': e, 'query': ' '.join(courses)}
 
@@ -46,7 +62,13 @@ def magics(request):
         timetable = pretty_timetable(table)
         data.append(timetable)
 
-    return { 'courses': data, 'num': len(tables), 'query': ' '.join(courses) }
+    return {
+        'courses': data,
+        'num': len(tables),
+        'query': ' '.join(courses),
+        'sort_order': sort_order,
+        'clash_hours': clash_hours,
+    }
 
 def Main(request):
     if request.method.upper() == 'POST':
