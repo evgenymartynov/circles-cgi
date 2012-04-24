@@ -73,7 +73,7 @@ def magics(request):
 def Main(request):
     if request.method.upper() == 'POST':
         return magics(request)
-    return {}
+    return {'sort_order': 'free', 'clash_hours': 0}
 
 def Admin(request):
     return HTTPFound(location='http://www.youtube.com/watch?v=oHg5SJYRHA0')
