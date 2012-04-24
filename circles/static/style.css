@@ -256,39 +256,51 @@ table#past-submissions .bad {
 
 .courses td {
     width: 200px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+
+    z-index: 1;
 }
 
 .courses .cell {
-    border-radius: 16px;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    top: -25px;
+    left: 0px;
+    border-radius: 75px;
     font-weight: bold;
+    z-index: -1;
 }
 
 .courses .cell.purple {
-    background-color: rgb(196, 128, 196);
+    background-color: rgba(196, 128, 196, 0.7);
     color: rgb(128, 0, 128);
 }
 
 .courses .cell.red {
-    background-color: rgb(196, 128, 128);
+    background-color: rgba(196, 128, 128, 0.7);
     color: rgb(128, 0, 0);
 }
 
 .courses .cell.green {
-    background-color: rgb(128, 196, 128);
+    background-color: rgba(128, 196, 128, 0.7);
     color: rgb(0, 128, 0);
 }
 
 .courses .cell.blue {
-    background-color: rgb(128, 128, 196);
+    background-color: rgba(128, 128, 196, 0.7);
     color: rgb(0, 0, 128);
 }
 
 .courses .cell.yellow {
-    background-color: rgb(128, 196, 196);
+    background-color: rgba(128, 196, 196, 0.7);
     color: rgb(0, 128, 128);
 }
 
 .courses .cell.orange {
-    background-color: rgb(196, 196, 128);
+    background-color: rgba(196, 196, 128, 0.7);
     color: rgb(128, 128, 0);
 }

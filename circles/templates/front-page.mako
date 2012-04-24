@@ -48,7 +48,7 @@
                                 else:
                                     colour = ''
                             %>
-                            <td class="${colour}">${row}</td>
+                            <td>${row}<div class="${colour}"></div></td>
                         % endfor
                     </tr>
                 % endfor
