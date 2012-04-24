@@ -34,10 +34,10 @@
                     % endfor
                 </tr>
                 
-                % for slot in c[1:]:
+                % for si, slot in enumerate(c[1:]):
                     <tr>
                         <td>${'%02d' % slot[0]}:00</td>
-                        % for row in slot[1:]:
+                        % for ri, row in enumerate(slot[1:]):
                             <%
                                 subj = row.split()[0]
                                 if subj != '-':
@@ -47,8 +47,16 @@
                                     colour = colours[subj]
                                 else:
                                     colour = ''
+
+                                conseq = 1
+                                while 1+si+conseq < len(c) and c[1+si+conseq][1+ri] == c[1+si][1+ri]:
+                                    c[1+si+conseq][1+ri] = '-'
+                                    conseq += 1
                             %>
-                            <td>${row}<div class="${colour}"></div></td>
+                            <td>
+                                <span style="width: ${conseq*100}px; height: ${conseq*100}px; border-radius:999px; left:${-conseq*50+75}px; top:0px" class="${colour}"></span>
+                                <span style="position: absolute; height: ${conseq*100}px; top: ${(conseq-1)*100/2+25}px; vertical-align: middle">${row if row != '-' else ''}</span>
+                            </td>
                         % endfor
                     </tr>
                 % endfor

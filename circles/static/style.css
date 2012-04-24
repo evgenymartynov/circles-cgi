@@ -266,13 +266,9 @@ table#past-submissions .bad {
 
 .courses .cell {
     position: absolute;
-    height: 150px;
-    width: 150px;
-    top: -25px;
-    left: 0px;
-    border-radius: 75px;
     font-weight: bold;
     z-index: -1;
+    display: inline;
 }
 
 .courses .cell.purple {
