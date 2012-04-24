@@ -13,6 +13,10 @@
         <p style="color: red">${error}</p>
     % endif
 
+    % if type(courses) is list and len(courses) == 0:
+        <p style="color: blue">Could not find any non-clashing timetables :(</p>
+    % endif
+
     % if courses:
         <p>Got a total of ${num} timetables</p>
 
