@@ -23,7 +23,7 @@
         % for c in courses:
             <%
                 colours = {}
-                palette = ['cell purple', 'cell red', 'cell blue', 'cell yellow', 'cell green', 'cell orange']
+                palette = ['purple', 'red', 'blue', 'yellow', 'green', 'orange']
                 pindex = 0
             %>
             <table class="courses alternate" style="margin: 16px 0px">
@@ -49,13 +49,18 @@
                                     colour = ''
 
                                 conseq = 1
-                                while 1+si+conseq < len(c) and c[1+si+conseq][1+ri] == c[1+si][1+ri]:
-                                    c[1+si+conseq][1+ri] = '-'
-                                    conseq += 1
+                                if len(row) > 1:
+                                    while 1+si+conseq < len(c) and c[1+si+conseq][1+ri] == c[1+si][1+ri]:
+                                        c[1+si+conseq][1+ri] = '*'
+                                        conseq += 1
                             %>
                             <td>
-                                <span style="width: ${conseq*100}px; height: ${conseq*100}px; border-radius:999px; left:${-conseq*50+75}px; top:0px" class="${colour}"></span>
-                                <span style="position: absolute; height: ${conseq*100}px; top: ${(conseq-1)*100/2+25}px; vertical-align: middle">${row if row != '-' else ''}</span>
+                                % if len(row) > 1:
+                                    <span style="position: relative">
+                                        <div style="position: absolute; left: ${-(conseq-1)*50+15}px; width: ${conseq*100}px; height: ${conseq*100}px" class="cell ${colour}"></div>
+                                        <div style="position: absolute; left: 15px; top: ${conseq*50 - 25}px; vertical-align: middle; text-align: center; width: 100px" class="cell-text ${colour}">${row if len(row) > 1 else ''}</div>
+                                    </span>
+                                % endif
                             </td>
                         % endfor
                     </tr>

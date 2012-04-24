@@ -255,48 +255,65 @@ table#past-submissions .bad {
 }
 
 .courses td {
-    width: 200px;
+    width: 130px;
     height: 100px;
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-
-    z-index: 1;
+    padding: 0;
 }
 
 .courses .cell {
     position: absolute;
-    font-weight: bold;
-    z-index: -1;
     display: inline;
+    border-radius: 999px;
+}
+
+.courses .cell-text {
+    font-weight: bold;
 }
 
 .courses .cell.purple {
     background-color: rgba(196, 128, 196, 0.7);
+}
+
+.courses .cell-text.purple {
     color: rgb(128, 0, 128);
 }
 
 .courses .cell.red {
     background-color: rgba(196, 128, 128, 0.7);
+}
+
+.courses .cell-text.red {
     color: rgb(128, 0, 0);
 }
 
 .courses .cell.green {
     background-color: rgba(128, 196, 128, 0.7);
+}
+
+.courses .cell-text.green {
     color: rgb(0, 128, 0);
 }
 
 .courses .cell.blue {
     background-color: rgba(128, 128, 196, 0.7);
+}
+
+.courses .cell-text.blue {
     color: rgb(0, 0, 128);
 }
 
 .courses .cell.yellow {
     background-color: rgba(128, 196, 196, 0.7);
+}
+
+.courses .cell-text.yellow {
     color: rgb(0, 128, 128);
 }
 
 .courses .cell.orange {
     background-color: rgba(196, 196, 128, 0.7);
+}
+
+.courses .cell-text.orange {
     color: rgb(128, 128, 0);
 }
