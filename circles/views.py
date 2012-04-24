@@ -52,6 +52,8 @@ def magics(request):
     except:
         sort_order = 'free'
 
+    print courses, clash_hours, sort_order
+
     try:
         tables = cint.process(courses, sort_order, clash_hours)
     except ValueError, e:
