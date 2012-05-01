@@ -14,7 +14,7 @@
         </select>
         <br>
         <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
-        <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours}"><br>
+        <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours or ''}"><br>
         <br>
         <input type="submit" value="I love UNSW">
     </form>
@@ -26,6 +26,8 @@
     % if type(courses) is list and len(courses) == 0:
         <p style="color: blue">Could not find any non-clashing timetables :(</p>
     % endif
+
+    <p style="color: grey">The server breaks and goes down a lot. Don't rely on Circles being up all the time. This was a one-day project, and I am not going to maintain it in the future.</p>
 
     % if courses:
         <p>Got a total of ${num} timetables</p>
@@ -63,7 +65,8 @@
                                             conseq = 1
                                             while 1+si+conseq < len(c) and subj in c[1+si+conseq][1+ri]:
                                                 temp = c[1+si+conseq][1+ri].split(' | ')
-                                                temp.remove(subj)
+                                                if subj in temp:
+                                                    temp.remove(subj)
                                                 c[1+si+conseq][1+ri] = ' | '.join(temp) or '*'
                                                 conseq += 1
                                             rows.append((conseq, subj, colour))
