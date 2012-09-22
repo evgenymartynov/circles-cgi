@@ -317,3 +317,7 @@ table#past-submissions .bad {
 .courses .cell-text.orange {
     color: rgb(128, 128, 0);
 }
+
+.courses .cell.clash {
+    border: dashed 2px red;
+}

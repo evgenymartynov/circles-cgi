@@ -16,7 +16,7 @@
         <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
         <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours or ''}"><br>
         <br>
-        <input type="submit" value="I love UNSW">
+        <input type="submit" value="Show me the circles">
     </form>
 
     % if error:
@@ -26,8 +26,6 @@
     % if type(courses) is list and len(courses) == 0:
         <p style="color: blue">Could not find any non-clashing timetables :(</p>
     % endif
-
-    <p style="color: grey">The server breaks and goes down a lot. Don't rely on Circles being up all the time. This was a one-day project, and I am not going to maintain it in the future.</p>
 
     % if courses:
         <p>Got a total of ${num} timetables</p>
@@ -56,20 +54,21 @@
                                     conseq = 1
                                     subjects = row.split(' | ')
                                     if len(row) > 1:
+                                        print subjects
                                         rows = []
-                                        for subj in subjects:
-                                            if subj not in colours:
-                                                colours[subj] = palette[pindex]
+                                        if ' | ' in row:
+                                            colour = 'clash red'
+                                        else:
+                                            if row not in colours:
+                                                colours[row] = palette[pindex]
                                                 pindex = (pindex + 1) % len(palette)
-                                            colour = colours[subj]
-                                            conseq = 1
-                                            while 1+si+conseq < len(c) and subj in c[1+si+conseq][1+ri]:
-                                                temp = c[1+si+conseq][1+ri].split(' | ')
-                                                if subj in temp:
-                                                    temp.remove(subj)
-                                                c[1+si+conseq][1+ri] = ' | '.join(temp) or '*'
-                                                conseq += 1
-                                            rows.append((conseq, subj, colour))
+                                            colour = colours[row]
+
+                                        conseq = 1
+                                        while 1+si+conseq < len(c) and row == c[1+si+conseq][1+ri]:
+                                            c[1+si+conseq][1+ri] = '*'
+                                            conseq += 1
+                                        rows.append((conseq, row.replace('|', '<br>'), colour))
                                 %>
                                 % if len(row) > 1:
                                     % for _row in rows:
@@ -78,7 +77,7 @@
                                     %>
                                     <span style="position: relative">
                                         <div style="position: absolute; left: ${-(conseq-1)*50+15}px; width: ${conseq*100}px; height: ${conseq*100}px" class="cell ${colour}"></div>
-                                        <div style="position: absolute; left: 15px; top: ${conseq*50 - 25}px; vertical-align: middle; text-align: center; width: 100px" class="cell-text ${colour}">${row if len(row) > 1 else ''}</div>
+                                        <div style="position: absolute; left: 15px; top: ${conseq*50 - 25}px; vertical-align: middle; text-align: center; width: 100px" class="cell-text ${colour}">${row if len(row) > 1 else '' | n}</div>
                                     </span>
                                     % endfor
                                 % endif
