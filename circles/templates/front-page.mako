@@ -59,7 +59,6 @@
                                     conseq = 1
                                     subjects = row.split(' | ')
                                     if len(row) > 1:
-                                        print subjects
                                         rows = []
                                         if ' | ' in row:
                                             colour = 'clash red'
