@@ -19,6 +19,8 @@
         <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
         <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours or ''}"><br>
         <br>
+        <p>Show your support for the awesome CSE staff <a href="https://www.facebook.com/events/178657028936986/">here</a> and <a href="https://www.facebook.com/events/374885755913202/">here</a></p>
+        <br>
         <input type="submit" value="Show me the circles">
     </form>
 
@@ -62,10 +64,11 @@
                                         if ' | ' in row:
                                             colour = 'clash red'
                                         else:
-                                            if row not in colours:
-                                                colours[row] = palette[pindex]
+                                            subject = row.split()[0]
+                                            if subject not in colours:
+                                                colours[subject] = palette[pindex]
                                                 pindex = (pindex + 1) % len(palette)
-                                            colour = colours[row]
+                                            colour = colours[subject]
 
                                         conseq = 1
                                         while 1+si+conseq < len(c) and row == c[1+si+conseq][1+ri]:
