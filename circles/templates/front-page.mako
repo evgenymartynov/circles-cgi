@@ -11,6 +11,9 @@
             <option value="free" ${'selected="selected"' if sort_order=='free' else ''}>Put timetables with most free weekdays first</option>
             <option value="unfree" ${'selected="selected"' if sort_order=='unfree' else ''}>Least free weekdays first</option>
             <option value="hours" ${'selected="selected"' if sort_order=='hours' else ''}>Least hours at uni first</option>
+            <option value="early" ${'selected="selected"' if sort_order=='early' else ''}>Penalise early (before 12) starts</option>
+            <option value="late" ${'selected="selected"' if sort_order=='late' else ''}>Penalise late (before 16) finishes</option>
+            <option value="lazy" ${'selected="selected"' if sort_order=='lazy' else ''}>Optimise for the lazy student (late start, early finish)</option>
         </select>
         <br>
         <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
@@ -28,7 +31,7 @@
     % endif
 
     % if courses:
-        <p>Got a total of ${num} timetables</p>
+        <p>Got a total of ${num} timetables (showing ${len(courses)})</p>
 
         % for c in courses:
             <%

@@ -60,7 +60,7 @@ def magics(request):
         return {'error': e, 'query': ' '.join(courses)}
 
     data = []
-    for table in tables[:20]:
+    for table in tables[:40]:
         timetable = pretty_timetable(table)
         data.append(timetable)
 
