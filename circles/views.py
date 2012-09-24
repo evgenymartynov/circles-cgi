@@ -1,6 +1,7 @@
 from pyramid.httpexceptions import HTTPFound
 import circles_backend.circles_generator as cgen
 import circles_backend.circles_interface as cint
+import re
 
 def pretty_timetable(times):
     days = len(times)
@@ -33,7 +34,8 @@ def pretty_timetable(times):
     return table
 
 def magics(request):
-    courses = request.POST['courses'].upper().split()
+    courses = request.POST['courses'].upper()
+    courses = re.sub('[^A-Z0-9]', ' ', courses).split()
     if not courses:
         return {'error': 'You need to provide at least one course'}
 
@@ -52,7 +54,7 @@ def magics(request):
     except:
         sort_order = 'free'
 
-    print courses, clash_hours, sort_order
+    print request.POST['courses'].upper(), '=>\n  ', courses, clash_hours, sort_order
 
     try:
         tables = cint.process(courses, sort_order, clash_hours)
