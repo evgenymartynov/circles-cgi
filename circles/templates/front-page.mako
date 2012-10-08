@@ -19,8 +19,6 @@
         <label for="clash_hours" style="color: #888">Also allow this many clash hours (max 3):</label>
         <input name="clash_hours" id="clash_hours" type="text" value="${clash_hours or ''}"><br>
         <br>
-        <p>Show your support for the awesome CSE staff <a href="https://www.facebook.com/events/178657028936986/">here</a> and <a href="https://www.facebook.com/events/374885755913202/">here</a></p>
-        <br>
         <input type="submit" value="Show me the circles">
     </form>
 
@@ -40,7 +38,11 @@
                 colours = {}
                 palette = ['purple', 'red', 'blue', 'yellow', 'green', 'orange']
                 pindex = 0
+                import zlib, base64, json
+                cdata = base64.b64encode(zlib.compress(json.dumps(c)))
             %>
+
+            <p class="timetable-link"><a href="/link?t=${cdata}">Link to the timetable below</a></p>
             <table class="courses alternate">
                 <tr>
                     <th>Time</th>

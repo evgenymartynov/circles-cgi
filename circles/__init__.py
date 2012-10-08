@@ -36,6 +36,10 @@ def main(global_config, **settings):
                     route_name='main',
                     view_name='circles.views.Main',
                     renderer='front-page.mako')
+    new_route(config, path='/link',
+                    route_name='timetable_link',
+                    view_name='circles.views.TimetableLink',
+                    renderer='front-page.mako')
     new_route(config, path='/admin',
                     route_name='admin',
                     view_name='circles.views.Admin')

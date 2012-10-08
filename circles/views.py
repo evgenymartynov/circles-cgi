@@ -2,6 +2,7 @@ from pyramid.httpexceptions import HTTPFound
 import circles_backend.circles_generator as cgen
 import circles_backend.circles_interface as cint
 import re
+import base64, zlib, json
 
 def pretty_timetable(times):
     days = len(times)
@@ -77,6 +78,17 @@ def magics(request):
         'query': ' '.join(courses),
         'sort_order': sort_order,
         'clash_hours': clash_hours,
+    }
+
+def TimetableLink(request):
+    data = request.GET['t']
+    timetable = json.loads(zlib.decompress(base64.b64decode(data)))
+
+    print 'Loading timetable from', data
+
+    return {
+        'courses': [timetable],
+        'num': 1,
     }
 
 def Main(request):
