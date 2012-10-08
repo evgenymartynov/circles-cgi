@@ -264,7 +264,8 @@ table#past-submissions .bad {
 .courses .cell {
     position: absolute;
     display: inline;
-    border-radius: 999px;
+    /*border-radius: 999px;*/
+    background-image: url('/static/koch.svg');
 }
 
 .courses .cell-text {
@@ -272,7 +273,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.purple {
-    background-color: rgba(196, 128, 196, 0.7);
+    /*background-color: rgba(196, 128, 196, 0.7);*/
 }
 
 .courses .cell-text.purple {
@@ -280,7 +281,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.red {
-    background-color: rgba(196, 128, 128, 0.7);
+    /*background-color: rgba(196, 128, 128, 0.7);*/
 }
 
 .courses .cell-text.red {
@@ -288,7 +289,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.green {
-    background-color: rgba(128, 196, 128, 0.7);
+    /*background-color: rgba(128, 196, 128, 0.7);*/
 }
 
 .courses .cell-text.green {
@@ -296,7 +297,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.blue {
-    background-color: rgba(128, 128, 196, 0.7);
+    /*background-color: rgba(128, 128, 196, 0.7);*/
 }
 
 .courses .cell-text.blue {
@@ -304,7 +305,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.yellow {
-    background-color: rgba(128, 196, 196, 0.7);
+    /*background-color: rgba(128, 196, 196, 0.7);*/
 }
 
 .courses .cell-text.yellow {
@@ -312,7 +313,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell.orange {
-    background-color: rgba(196, 196, 128, 0.7);
+    /*background-color: rgba(196, 196, 128, 0.7);*/
 }
 
 .courses .cell-text.orange {
