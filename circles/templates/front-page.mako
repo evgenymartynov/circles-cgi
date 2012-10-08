@@ -12,7 +12,7 @@
             <option value="unfree" ${'selected="selected"' if sort_order=='unfree' else ''}>Least free weekdays first</option>
             <option value="hours" ${'selected="selected"' if sort_order=='hours' else ''}>Least hours at uni first</option>
             <option value="early" ${'selected="selected"' if sort_order=='early' else ''}>Penalise early (before 12) starts</option>
-            <option value="late" ${'selected="selected"' if sort_order=='late' else ''}>Penalise late (before 16) finishes</option>
+            <option value="late" ${'selected="selected"' if sort_order=='late' else ''}>Penalise late (after 16) finishes</option>
             <option value="lazy" ${'selected="selected"' if sort_order=='lazy' else ''}>Optimise for the lazy student (late start, early finish)</option>
         </select>
         <br>
