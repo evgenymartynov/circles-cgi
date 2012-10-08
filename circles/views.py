@@ -59,7 +59,12 @@ def magics(request):
     try:
         tables = cint.process(courses, sort_order, clash_hours)
     except ValueError, e:
-        return {'error': e, 'query': ' '.join(courses)}
+        return {
+            'error': e,
+            'query': ' '.join(courses),
+            'sort_order': sort_order,
+            'clash_hours': clash_hours,
+        }
 
     data = []
     for table in tables[:40]:
