@@ -256,8 +256,9 @@ table#past-submissions .bad {
 
 .courses td {
     width: 130px;
-    height: 100px;
+    height: 80px;
     padding: 0;
+    font-size: 0.8em;
 }
 
 .courses .cell {
@@ -267,7 +268,7 @@ table#past-submissions .bad {
 }
 
 .courses .cell-text {
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .courses .cell.purple {

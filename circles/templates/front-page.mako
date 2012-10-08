@@ -73,16 +73,19 @@
                                         while 1+si+conseq < len(c) and row == c[1+si+conseq][1+ri]:
                                             c[1+si+conseq][1+ri] = '*'
                                             conseq += 1
-                                        rows.append((conseq, row.replace('|', '<br>'), colour))
+                                        titles = map(lambda t: '<b>%s</b> %s' % tuple(t.split(' ', 1)), row.split(' | '))
+                                        rows.append((conseq, '<br>'.join(titles), colour))
                                 %>
                                 % if len(row) > 1:
                                     % for _row in rows:
                                     <%
                                         conseq, row, colour = _row
+                                        radius  = 40    # Radius of the circles
+                                        padding = 25    # = csswidth/2 - radius
                                     %>
                                     <span style="position: relative">
-                                        <div style="position: absolute; left: ${-(conseq-1)*50+15}px; width: ${conseq*100}px; height: ${conseq*100}px" class="cell ${colour}"></div>
-                                        <div style="position: absolute; left: 15px; top: ${conseq*50 - 25}px; vertical-align: middle; text-align: center; width: 100px" class="cell-text ${colour}">${row if len(row) > 1 else '' | n}</div>
+                                        <div style="position: absolute; left: ${-(conseq-1)*radius+padding}px; width: ${conseq*radius*2}px; height: ${conseq*radius*2}px" class="cell ${colour}"></div>
+                                        <div style="position: absolute; left: ${padding}px; top: ${conseq*radius - 25}px; vertical-align: middle; text-align: center; width: ${radius*2}px" class="cell-text ${colour}">${row if len(row) > 1 else '' | n}</div>
                                     </span>
                                     % endfor
                                 % endif
