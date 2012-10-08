@@ -82,9 +82,10 @@ def magics(request):
 
 def TimetableLink(request):
     data = request.GET['t']
-    timetable = json.loads(zlib.decompress(base64.b64decode(data)))
-
     print 'Loading timetable from', data
+    data = data.replace('-', '+').replace('_', '/')
+
+    timetable = json.loads(zlib.decompress(base64.b64decode(data)))
 
     return {
         'courses': [timetable],

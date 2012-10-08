@@ -39,7 +39,7 @@
                 palette = ['purple', 'red', 'blue', 'yellow', 'green', 'orange']
                 pindex = 0
                 import zlib, base64, json
-                cdata = base64.b64encode(zlib.compress(json.dumps(c)))
+                cdata = base64.urlsafe_b64encode(zlib.compress(json.dumps(c)))
             %>
 
             <p class="timetable-link"><a href="/link?t=${cdata}">Link to the timetable below</a></p>
