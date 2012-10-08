@@ -37,16 +37,11 @@ h1 {
 h2 {
     font-size: 20px;
     margin: 0px;
-    margin-top: 24px;
+    margin-top: 12px;
     margin-bottom: 8px;
 }
 
-h2:first-child {
-    margin-top: 8px;
-}
-
 h3 {
-    margin-top: 12px;
     padding-bottom: 8px;
 }
 
@@ -54,18 +49,6 @@ p {
     margin-top: 12px;
     margin-bottom: 12px;
     line-height: 20px;
-}
-
-pre {
-    font-size: 14px;
-    font-family: monospace;
-    background-color: #eee;
-    padding: 8px;
-    border: solid 1px #aaa;
-}
-
-ul li.padded {
-    padding: 2px 0px;
 }
 
 form label {
@@ -86,22 +69,11 @@ form input[type="submit"] {
     padding: 1px 6px;
 }
 
-form#upload label {
-    min-width: 100px;
-}
-
-form#upload select {
-    width: 100px;
-}
-
-form#upload input[type="submit"] {
-    width: 100px;
-}
-
 table {
     border-collapse: collapse;
     border: solid 1px #aaf;
     padding-left: 2px;
+    margin: 8px 0px;
 }
 
 table td, table th {
@@ -113,76 +85,8 @@ table th {
     border-bottom: solid 1px #aae;
 }
 
-table#sets td, table#sets th, table#contests td, table#contests th {
-    border: solid 1px #aae;
-}
-
-table#judge-hardware .first {
-    font-weight: bold;
-    padding-right: 16px;
-}
-
 table.alternate tr:nth-child(even), table.alternate tr:nth-child(even) {
     background-color: #eef;
-}
-
-table#past-submissions .good {
-    background-color: #cfc;
-}
-
-table#past-submissions .bad {
-    background-color: #fcc;
-}
-
-#load-averages td:nth-child(2) {
-    text-align: right;
-}
-
-.admin-stats {
-    margin: 8px;
-    float: left;
-}
-
-.status-low {
-    background-color: #cfc;
-}
-
-.status-med {
-    background-color: #ea3;
-}
-
-.status-high {
-    background-color: #faa;
-}
-
-.status-extreme {
-    background-color: #f44;
-}
-
-.bar-graph {
-    width: 250px;
-    height: 20px;
-
-    border: solid 1px;
-
-    margin: 8px 0px;
-
-    position: relative;
-}
-
-.bar-graph .bar {
-    margin: 0;
-    height: 100%;
-
-    position: absolute;
-}
-
-.bar-graph .label {
-    margin: 0;
-    width: 100%;
-
-    position: absolute;
-    text-align: center;
 }
 
 .column {
@@ -195,8 +99,6 @@ table#past-submissions .bad {
     top: 0;
     left: 0;
     right: 0;
-
-    padding-top: 12px;
 }
 
 #content a {
@@ -206,17 +108,6 @@ table#past-submissions .bad {
 
 #content a:hover {
     color: #00a;
-}
-
-#flash-message-container {
-    border: #00a solid 1px;
-    background-color: #ddf;
-    padding: 0px 2px;
-    text-align: center;
-}
-
-.flash-message {
-    margin: 2px 0px;
 }
 
 .main-container {
@@ -248,12 +139,6 @@ table#past-submissions .bad {
     );
 }
 
-#broadcasts-container {
-    border: #00a solid 1px;
-    background-color: #ddf;
-    padding: 2px 4px;
-}
-
 .courses td {
     width: 130px;
     height: 80px;
@@ -265,10 +150,6 @@ table#past-submissions .bad {
     position: absolute;
     display: inline;
     border-radius: 999px;
-}
-
-.courses .cell-text {
-    /*font-weight: bold;*/
 }
 
 .courses .cell.purple {

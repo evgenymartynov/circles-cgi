@@ -41,7 +41,7 @@
                 palette = ['purple', 'red', 'blue', 'yellow', 'green', 'orange']
                 pindex = 0
             %>
-            <table class="courses alternate" style="margin: 16px 0px">
+            <table class="courses alternate">
                 <tr>
                     <th>Time</th>
                     % for row in c[0]:
