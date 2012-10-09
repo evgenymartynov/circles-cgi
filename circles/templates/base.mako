@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Circles</title>
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <%block name="head">
     </%block>

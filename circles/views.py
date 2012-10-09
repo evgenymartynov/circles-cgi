@@ -3,6 +3,13 @@ import circles_backend.circles_generator as cgen
 import circles_backend.circles_interface as cint
 import re
 import base64, zlib, json
+# For favicon
+import os
+from pyramid.response import Response
+
+favicon_contents = open(os.path.join(os.path.dirname(__file__), "static", "favicon.ico")).read()
+def FaviconView(request):
+    return Response(content_type='image/x-icon', body=favicon_contents)
 
 def pretty_timetable(times):
     days = len(times)

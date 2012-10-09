@@ -31,6 +31,10 @@ def main(global_config, **settings):
 #
     config.add_static_view('static', 'circles:static', cache_max_age=3600)
 
+    new_route(config, path='/favicon.ico',
+                    route_name='favicon',
+                    view_name='circles.views.FaviconView')
+
 # Publics
     new_route(config, path='/',
                     route_name='main',
