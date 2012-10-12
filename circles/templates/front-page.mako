@@ -33,6 +33,8 @@
     % if courses:
         <p>Got a total of ${num} timetables (showing ${len(courses)})</p>
 
+        <p style="color: grey">Known bug: if your course has some class once or twice throughout a semester, Circles will think that it runs throughout the entire semester. Use Rectangles if that is the case.</p>
+
         % for c in courses:
             <%
                 colours = {}
