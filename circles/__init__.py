@@ -2,8 +2,10 @@ from pyramid.config import Configurator
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
-from circles.models import initialize_sql
 import time
+
+import logging
+log = logging.getLogger(__name__)
 
 def timing_tween_factory(handler, registry):
     exclude_prefix = ['/static', '/_debug', '/favicon.ico']
@@ -17,7 +19,7 @@ def timing_tween_factory(handler, registry):
         finally:
             end = time.time()
             if all(map(lambda p: not path.startswith(p), exclude_prefix)):
-                print path, 'took %3.2f ms' % ((end - start)*1000)
+                log.warn('%s took %3.2f ms', path, (end - start)*1000)
         return response
 
     return timing_tween

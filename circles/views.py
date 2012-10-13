@@ -7,6 +7,9 @@ import base64, zlib, json
 import os
 from pyramid.response import Response
 
+import logging
+log = logging.getLogger(__name__)
+
 favicon_contents = open(os.path.join(os.path.dirname(__file__), "static", "favicon.ico")).read()
 def FaviconView(request):
     return Response(content_type='image/x-icon', body=favicon_contents)
@@ -62,7 +65,7 @@ def magics(request):
     except:
         sort_order = 'free'
 
-    print request.POST['courses'].upper(), '=>\n  ', courses, clash_hours, sort_order
+    log.warn('\n %s =>\n %s %s %s', request.POST['courses'].upper(), courses, clash_hours, sort_order)
 
     try:
         tables = cint.process(courses, sort_order, clash_hours)
@@ -89,7 +92,7 @@ def magics(request):
 
 def TimetableLink(request):
     data = request.GET['t']
-    print 'Loading timetable from', data
+    log.info('Loading timetable from %s', data)
     data = data.replace('-', '+').replace('_', '/')
 
     timetable = json.loads(zlib.decompress(base64.b64decode(data)))
