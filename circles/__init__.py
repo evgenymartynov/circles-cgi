@@ -2,6 +2,25 @@ from pyramid.config import Configurator
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
+from circles.models import initialize_sql
+import time
+
+def timing_tween_factory(handler, registry):
+    exclude_prefix = ['/static', '/_debug', '/favicon.ico']
+
+    def timing_tween(request):
+        path = request.path
+        start = time.time()
+
+        try:
+            response = handler(request)
+        finally:
+            end = time.time()
+            if all(map(lambda p: not path.startswith(p), exclude_prefix)):
+                print path, 'took %3.2f ms' % ((end - start)*1000)
+        return response
+
+    return timing_tween
 
 # Shortcut for adding new routes
 def new_route(config, path, view_name, route_name='', renderer=None, permission=None):
@@ -23,6 +42,8 @@ def main(global_config, **settings):
                             session_factory=sessfact,
                             authentication_policy=authentication_policy,
                             authorization_policy=authorisation_policy )
+
+    config.add_tween('circles.timing_tween_factory')
 
 #
 # Routes
