@@ -1,9 +1,7 @@
 from pyramid.config import Configurator
-from sqlalchemy import engine_from_config
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
-from circles.models import initialize_sql
 
 # Shortcut for adding new routes
 def new_route(config, path, view_name, route_name='', renderer=None, permission=None):

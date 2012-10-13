@@ -9,12 +9,9 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
     'pyramid==1.2',
-    'SQLAlchemy',
-    'transaction==1.1',
     'WebOb==1.1',
     'pyramid_tm',
     'pyramid_debugtoolbar',
-    'zope.sqlalchemy',
     ]
 
 if sys.version_info[:3] < (2,5,0):
