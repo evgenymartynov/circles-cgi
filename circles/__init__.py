@@ -4,7 +4,7 @@ from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 import time
 
-import logging
+from logging_col import logging
 log = logging.getLogger(__name__)
 
 def timing_tween_factory(handler, registry):

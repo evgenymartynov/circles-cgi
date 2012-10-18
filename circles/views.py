@@ -7,7 +7,8 @@ import base64, zlib, json
 import os
 from pyramid.response import Response
 
-import logging
+from logging_col import logging
+
 log = logging.getLogger(__name__)
 
 favicon_contents = open(os.path.join(os.path.dirname(__file__), "static", "favicon.ico")).read()
