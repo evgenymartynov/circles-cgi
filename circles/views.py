@@ -69,7 +69,7 @@ def magics(request):
     log.warn('\n %s =>\n %s %s %s', request.POST['courses'].upper(), courses, clash_hours, sort_order)
 
     try:
-        tables = cint.process(courses, sort_order, clash_hours)
+        num_tables, tables = cint.process_v2(courses, sort_order, clash_hours, 40)
     except ValueError, e:
         return {
             'error': e,
@@ -79,13 +79,13 @@ def magics(request):
         }
 
     data = []
-    for table in tables[:40]:
+    for table in tables:
         timetable = pretty_timetable(table)
         data.append(timetable)
 
     return {
         'courses': data,
-        'num': len(tables),
+        'num': num_tables,
         'query': ' '.join(courses),
         'sort_order': sort_order,
         'clash_hours': clash_hours,
