@@ -57,12 +57,13 @@
                         % for ri, row in enumerate(slot[1:]):
                             <td>
                                 <%
+                                    SEP = ' & '
                                     colour = ''
                                     conseq = 1
-                                    subjects = row.split(' | ')
+                                    subjects = row.split(SEP)
                                     if len(row) > 1:
                                         rows = []
-                                        if ' | ' in row:
+                                        if SEP in row:
                                             colour = 'clash red'
                                         else:
                                             subject = row.split()[0]
@@ -75,7 +76,7 @@
                                         while 1+si+conseq < len(c) and row == c[1+si+conseq][1+ri]:
                                             c[1+si+conseq][1+ri] = '*'
                                             conseq += 1
-                                        titles = map(lambda t: '<b>%s</b> %s' % tuple(t.split(' ', 1)), row.split(' | '))
+                                        titles = map(lambda t: '<b>%s</b> %s' % tuple(t.split(' ', 1)), row.split(SEP))
                                         rows.append((conseq, '<br>'.join(titles), colour))
                                 %>
                                 % if len(row) > 1:
