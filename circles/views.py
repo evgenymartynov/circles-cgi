@@ -70,7 +70,7 @@ def magics(request):
 
     try:
         num_tables, tables = cint.process_v2(courses, sort_order, clash_hours, 40)
-    except ValueError, e:
+    except cint.CirclesError, e:
         return {
             'error': e,
             'query': ' '.join(courses),
