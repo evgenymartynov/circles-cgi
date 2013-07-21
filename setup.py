@@ -12,6 +12,8 @@ requires = [
     'WebOb==1.1',
     'pyramid_tm',
     'pyramid_debugtoolbar',
+    'requests',
+    'beautifulsoup4',
     ]
 
 if sys.version_info[:3] < (2,5,0):
