@@ -10,7 +10,7 @@
     <header>
         <div class="column">
             <h1>Circles</h1>
-            <h3>Automatic UNSW timetabler for 2013s1</h3>
+            <h3>Automatic UNSW timetabler for 2013s2</h3>
         </div>
     </header>
 
